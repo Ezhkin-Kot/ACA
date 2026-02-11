@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+// Counting Sort with O(n + k)
+// n = number of elements, k = range between elements
 void countingSort(std::vector<int> &arr) {
     if (arr.empty()) {
         std::cout << "Error: array is empty" << std::endl;
