@@ -5,7 +5,7 @@
 // n = number of elements, k = range between elements
 void countingSort(std::vector<int> &arr) {
     if (arr.empty()) {
-        std::cout << "Error: array is empty" << std::endl;
+        std::cerr << "Error: array is empty\n";
         return;
     }
 
@@ -51,7 +51,7 @@ int main() {
     std::cin >> n;
 
     std::vector<int> arr(n);
-    std::cout << "Enter the elements: ";
+    std::cout << "Enter the elements:\n";
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }

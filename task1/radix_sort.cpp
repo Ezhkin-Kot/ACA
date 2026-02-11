@@ -30,16 +30,20 @@ void countingSort(std::vector<int> &arr, int exp) {
 // d = max number of digits, n = number of elements, k = radix (= 10)
 void radixSort(std::vector<int> &arr) {
     if (arr.empty()) {
-        std::cout << "Error: array is empty" << std::endl;
+        std::cerr << "Error: array is empty\n";
         return;
     }
 
     // Find the max element of the array
     // to determine the max number of digits
     int max = arr[0];
-    for (int i = 1; i < arr.size(); i++) {
+    for (int i = 0; i < arr.size(); i++) {
         if (arr[i] > max) {
             max = arr[i];
+        }
+        if (arr[i] < 0) {
+            std::cerr << "Error: array contains negative numbers\n";
+            return;
         }
     }
 
@@ -56,7 +60,7 @@ int main() {
     std::cin >> n;
 
     std::vector<int> arr(n);
-    std::cout << "Enter the elements: ";
+    std::cout << "Enter the elements:\n";
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }
