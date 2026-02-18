@@ -43,11 +43,16 @@ void merge(std::vector<int> &arr, int left, int mid, int right) {
     }
 }
 
-void Sorter::MergeSort(std::vector<int> &arr, int left, int right) {
+void mergeSort(std::vector<int> &arr, int left, int right) {
     if (left < right) {
-        int mid = (left + right) / 2;
-        MergeSort(arr, left, mid);
-        MergeSort(arr, mid + 1, right);
+        int mid = left + (right - left) / 2;
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
         merge(arr, left, mid, right);
     }
+}
+
+
+void Sorter::MergeSort(std::vector<int> &arr) {
+    mergeSort(arr, 0, arr.size() - 1);
 }

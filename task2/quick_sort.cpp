@@ -1,13 +1,13 @@
 #include "sorter.h"
 #include <vector>
 
-void Sorter::QuickSort(std::vector<int> &arr, int left, int right) {
+void quickSort(std::vector<int> &arr, int left, int right) {
     if (left >= right) {
         return; // Already sorted
     }
 
     // Set the pivot element as the middle
-    int pivot = arr[(left + right) / 2];
+    int pivot = arr[left + (right - left) / 2];
     int i = left, j = right;
     while (i <= j) {
         // Find left element greater than pivot
@@ -27,10 +27,14 @@ void Sorter::QuickSort(std::vector<int> &arr, int left, int right) {
     }
     if (left < j) {
         // Sort left subarray
-        QuickSort(arr, left, j);
+        quickSort(arr, left, j);
     }
     if (i < right) {
         // Sort right subarray
-        QuickSort(arr, i, right);
+        quickSort(arr, i, right);
     }
+}
+
+void Sorter::QuickSort(std::vector<int> &arr) {
+    quickSort(arr, 0, arr.size() - 1);
 }
