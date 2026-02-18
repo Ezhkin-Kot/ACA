@@ -1,7 +1,7 @@
 #include "sorter.h"
-#include <iostream>
 #include <vector>
 
+// Merge two subarrays into a single sorted array
 void merge(std::vector<int> &arr, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -17,6 +17,7 @@ void merge(std::vector<int> &arr, int left, int mid, int right) {
     }
 
     int i = 0, j = 0, k = left;
+    // Sort and merge subarrays
     while (i < n1 && j < n2) {
         if (leftArr[i] <= rightArr[j]) {
             arr[k] = leftArr[i];
@@ -28,6 +29,7 @@ void merge(std::vector<int> &arr, int left, int mid, int right) {
         k++;
     }
 
+    // Copy remaining elements
     while (i < n1) {
         arr[k] = leftArr[i];
         i++;
@@ -42,11 +44,6 @@ void merge(std::vector<int> &arr, int left, int mid, int right) {
 }
 
 void Sorter::MergeSort(std::vector<int> &arr, int left, int right) {
-    if (arr.empty()) {
-        std::cerr << "Error: array is empty\n";
-        return;
-    }
-
     if (left < right) {
         int mid = (left + right) / 2;
         MergeSort(arr, left, mid);

@@ -13,7 +13,7 @@ int main() {
     }
 
     Sorter sorter;
-    sorter.SortArray(arr);
+    sorter.SortArray(arr); // Select sorting algorithm
 
     for (int i = 0; i < arr.size(); i++) {
         std::cout << arr[i] << " ";
