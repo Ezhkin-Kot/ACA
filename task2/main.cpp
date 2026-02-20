@@ -1,5 +1,5 @@
-#include "sort_tester/tester.hpp"
 #include "sorter.h"
+#include "tester.h"
 #include <iostream>
 
 int main() {
@@ -13,21 +13,22 @@ int main() {
 
     if (test_mode) {
         Sorter sorter;
+        double time;
         int elem_counts[] = {50000, 100000, 500000, 1000000};
         for (int i : elem_counts) {
-            tester::Tester t1(
-                {tester::Config(sorter.QuickSort, 5, i, INT_MIN, INT_MAX)});
-            t1.start();
+            time = MeasureSortTime(sorter.QuickSort, i, 5);
+            std::cout << "Quick sort time for " << i << " elements: " << time
+                      << "\n";
         }
         for (int i : elem_counts) {
-            tester::Tester t2(
-                {tester::Config(sorter.MergeSort, 5, i, INT_MIN, INT_MAX)});
-            t2.start();
+            time = MeasureSortTime(sorter.MergeSort, i, 5);
+            std::cout << "Merge sort time for " << i << " elements: " << time
+                      << "\n";
         }
         for (int i : elem_counts) {
-            tester::Tester t3(
-                {tester::Config(sorter.HeapSort, 5, i, INT_MIN, INT_MAX)});
-            t3.start();
+            time = MeasureSortTime(sorter.HeapSort, i, 5);
+            std::cout << "Heap sort time for " << i << " elements: " << time
+                      << "\n";
         }
     } else {
         int n;

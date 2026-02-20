@@ -10,7 +10,7 @@ set(SOURCES
   heap_sort.cpp
   merge_sort.cpp
   quick_sort.cpp
-  sort_tester/tester.cpp
+  tester.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
