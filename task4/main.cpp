@@ -380,7 +380,7 @@ int main() {
                   << "1. Add element\n"
                   << "2. Delete element\n"
                   << "3. Search element\n"
-                  << "4. Print tree (symmetric traversal)\n"
+                  << "4. Print tree (direct traversal)\n"
                   << "0. Exit\n"
                   << "> ";
         std::cin >> choice;
