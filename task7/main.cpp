@@ -28,15 +28,23 @@ std::vector<size_t> kmp_search(const std::string &text,
 
     std::vector<size_t> pi = prefix_function(pattern);
 
+    size_t i = 0;
     size_t j = 0;
-    for (size_t i = 0; i < n; i++) {
-        while (j > 0 && text[i] != pattern[j])
-            j = pi[j - 1];
-        if (text[i] == pattern[j])
+    while (i < n) {
+        if (text[i] == pattern[j]) {
+            i++;
             j++;
-        if (j == m) {
-            result.push_back(i - m + 1);
-            j = pi[j - 1];
+
+            if (j == m) {
+                result.push_back(i - j);
+                j = pi[j - 1];
+            }
+        } else {
+            if (j != 0) {
+                j = pi[j - 1];
+            } else {
+                i++;
+            }
         }
     }
 
