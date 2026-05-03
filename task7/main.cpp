@@ -34,12 +34,12 @@ std::vector<size_t> kmp_search(const std::string &text,
         if (text[i] == pattern[j]) {
             i++;
             j++;
+        }
 
-            if (j == m) {
-                result.push_back(i - j);
-                j = pi[j - 1];
-            }
-        } else {
+        if (j == m) {
+            result.push_back(i - j);
+            j = pi[j - 1];
+        } else if (i < n && text[i] != pattern[j]) {
             if (j != 0) {
                 j = pi[j - 1];
             } else {
@@ -72,3 +72,4 @@ int main() {
 
     return 0;
 }
+// baabaacabacbaabaabacabaa
